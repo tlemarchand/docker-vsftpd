@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y vsftpd=`cat /tmp/version` && \
     echo 'listen_port=2121' >> /etc/vsftpd.conf && \
     echo 'pasv_min_port=31000' >> /etc/vsftpd.conf && \
     echo 'pasv_max_port=31001' >> /etc/vsftpd.conf && \
+    echo 'pasv_address=192.168.199.50' >> /etc/vsftpd.conf && \
     chown vsftpd: /etc/vsftpd.conf
 
 EXPOSE 2121/tcp
