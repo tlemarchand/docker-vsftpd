@@ -16,9 +16,11 @@ RUN apt-get update && apt-get install -y vsftpd=`cat /tmp/version` && \
 #    sed -i 's/#chown_username=whoever/chown_username=x/' /etc/vsftpd.conf && \
     echo 'anon_root=/srv/ftp' >> /etc/vsftpd.conf && \
     echo 'vsftpd_log_file=/dev/stdout' >> /etc/vsftpd.conf && \
-    echo 'run_as_launching_user=YES' >> /etc/vsftpd.conf
+    echo 'run_as_launching_user=YES' >> /etc/vsftpd.conf && \
+    echo 'listen_port=2121' >> /etc/vsftpd.conf && \
+    chown vsftpd: /etc/vsftpd.conf
 
-EXPOSE 21/tcp
+EXPOSE 2121/tcp
 
 USER vsftpd
 
