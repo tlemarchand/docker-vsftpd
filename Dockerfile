@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y vsftpd=`cat /tmp/version` && \
     echo 'anon_root=/srv/ftp' >> /etc/vsftpd.conf && \
     echo 'vsftpd_log_file=/dev/stdout' >> /etc/vsftpd.conf
 
-EXPOSE 21/
+EXPOSE 21/tcp
 
 USER root
 
